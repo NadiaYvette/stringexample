@@ -1,0 +1,76 @@
+cabal-version: 3.0
+
+name:                   stringexample
+version:                0.0.0.1
+synopsis:               An example string.
+description:            The string example shows oddities in behavior
+                        around the resumption of string text after gaps
+                        delimited by backslashes where the resuming
+                        delimiter is followed immediately by a quoted
+                        double quote.
+category:               Test,
+copyright:              2024 Nadia Chambers
+author:                 Nadia Chambers
+maintainer:             nadia.yvette.chambers@gmail.com
+license:                CC-BY-4.0
+license-files:          LICENSE
+build-type:             Simple
+extra-source-files:     README.md
+data-files:
+
+common project-config
+  if os(windows)
+    buildable: False
+
+library
+  import:               project-config
+
+  hs-source-dirs:       src
+  ghc-options:          -Wall
+                        -Werror
+                        -Wcompat
+                        -Wno-error=deprecations
+                        -Wno-error=incomplete-record-updates
+                        -Wno-error=incomplete-uni-patterns
+                        -Wno-error=missing-import-lists
+                        -Wno-error=partial-fields
+                        -Wno-error=prepositive-qualified-module
+                        -Wno-error=redundant-constraints
+                        -fno-warn-safe
+                        -fno-warn-unsafe
+                        -fno-ignore-interface-pragmas
+                        -fno-omit-interface-pragmas
+                        -fobject-code
+
+  exposed-modules:      StringExample
+  other-modules:        Paths_stringexample
+
+  autogen-modules:      Paths_stringexample
+
+  build-depends:        base >=4.12 && <5
+                      , text
+
+  default-language:     Haskell2010
+  default-extensions:   OverloadedStrings
+                        BlockArguments
+                        DataKinds
+                        DeriveAnyClass
+                        DeriveGeneric
+                        DuplicateRecordFields
+                        EmptyCase
+                        FlexibleContexts
+                        FlexibleInstances
+                        GADTs
+                        GeneralizedNewtypeDeriving
+                        LambdaCase
+                        NamedFieldPuns
+                        PartialTypeSignatures
+                        PatternSynonyms
+                        RankNTypes
+                        RecordWildCards
+                        ScopedTypeVariables
+                        StandaloneDeriving
+                        TupleSections
+                        TypeApplications
+                        TypeFamilies
+                        TypeOperators
